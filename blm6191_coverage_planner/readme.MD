@@ -23,3 +23,22 @@ source devel/setup.bash
 
 
 roslaunch turtlebot3_gazebo turtlebot3_world.launch
+
+
+
+source ~/robotlar_ws/devel/setup.bash
+roslaunch turtlebot3_slam turtlebot3_slam.launch
+
+
+
+
+source ~/robotlar_ws/devel/setup.bash
+roslaunch turtlebot3_navigation move_base.launch
+
+
+
+rostopic pub /coverage_polygon geometry_msgs/Polygon "points:
+- {x: 1.0, y: 1.0, z: 0.0}
+- {x: 3.0, y: 1.0, z: 0.0}
+- {x: 3.0, y: 3.0, z: 0.0}
+- {x: 1.0, y: 3.0, z: 0.0}"
