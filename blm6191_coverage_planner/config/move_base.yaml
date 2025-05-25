@@ -1,0 +1,13 @@
+move_base:
+  # ... diğer move_base parametreleri (costmaplar, frekanslar vb.)
+
+  # Global planlayıcı olarak kendi eklentinizi belirtin:
+  base_global_planner: blm6191_coverage_planner/CoveragePlanner
+
+  # Global planlayıcınızın parametrelerini yükleyin:
+  # Buradaki isim (blm6191_coverage_planner) yukarıdaki base_global_planner
+  # tanımında verdiğiniz plugin class name'i ile aynı olmalıdır.
+  blm6191_coverage_planner: # <-- Namespace for your planner parameters
+    robot_radius: 0.30      # Robot yarıçapı (metrik)
+    polygon_topic: "coverage_polygon" # Poligon mesajının topic ismi
+    # ... diğer kendi planner parametreleriniz buraya gelecek

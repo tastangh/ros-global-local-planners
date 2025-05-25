@@ -1,0 +1,12 @@
+# Parameters for the Coverage Global Planner
+# This file should be in your blm6191_coverage_planner/config/ folder
+
+# The namespace here should match the name you give the planner instance in your move_base config.
+# In the launch file (coverage_test.launch), we load it with ns="blm6191_coverage_planner".
+blm6191_coverage_planner:
+  robot_radius: 0.30      # Robot radius in meters. Determines swath width (2 * radius). Adjust based on your robot.
+                          # This value affects the spacing between sweep lines.
+  polygon_topic: "coverage_polygon" # Topic name where the geometry_msgs/Polygon message will be published.
+                                  # The planner will subscribe to this topic.
+  # Add other planner specific parameters here if you extend the planner
+  # (e.g., sweep angle, resolution, parameters for obstacle avoidance within the polygon, etc.)

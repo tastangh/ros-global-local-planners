@@ -1,0 +1,8 @@
+<library path="lib/libblm6191_coverage_planner">
+  <class name="blm6191_coverage_planner/CoveragePlanner"
+         base_class_type="nav_core::BaseGlobalPlanner">
+    <description>
+      A global planner that generates a coverage path for a 4-vertex polygon area using a horizontal sweep.
+    </description>
+  </class>
+</library>
