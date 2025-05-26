@@ -6,11 +6,10 @@
 
   <maintainer email="mehmetwork99@gmail.com">Your Name</maintainer>
 
-  <license>TODO</license> <!-- Consider a standard ROS license like BSD, MIT, Apache 2.0 -->
+  <license>TODO</license> 
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <!-- Use <depend> for dependencies needed for both build and execution -->
   <depend>costmap_2d</depend>
   <depend>geometry_msgs</depend>
   <depend>nav_core</depend>
@@ -18,14 +17,12 @@
   <depend>pluginlib</depend>
   <depend>roscpp</depend>
   <depend>tf</depend>
-  <depend>tf2_ros</depend> <!-- tf2_ros ekliyorum, bazen tf kullanan paketler tf2_ros'a da ihtiyaç duyabilir -->
-  <depend>tf2_geometry_msgs</depend> <!-- geometry_msgs dönüşümleri için -->
+  <depend>tf2_ros</depend> 
+  <depend>tf2_geometry_msgs</depend> 
 
 
   <export>
-    <!-- Export this plugin for nav_core -->
     <nav_core plugin="${prefix}/blm6191_coverage_planner_plugin.xml" />
-    <!-- Optional: Export for pluginlib discovery -->
     <pluginlib>
         <class type="blm6191_coverage_planner/CoveragePlanner"
                base_class_type="nav_core::BaseGlobalPlanner" />
