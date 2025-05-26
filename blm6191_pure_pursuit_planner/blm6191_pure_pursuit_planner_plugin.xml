@@ -1,30 +1,22 @@
 <launch>
-  <!-- move_base.launch dosyasına geçilecek robot modelini argüman olarak tanımlıyoruz -->
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]" />
-  <!-- RViz'in açılıp açılmayacağını kontrol eden argüman (bu launch dosyası için) -->
   <arg name="open_rviz" default="true"/>
 
-  <!-- move_base düğümünün parametrelerini yükle -->
-  <!-- Parametreleri move_base düğümünün namespace'ine (genellikle /move_base) yüklemek için group kullanıyoruz -->
   <group ns="move_base">
     <rosparam file="$(find blm6191_coverage_planner)/config/move_base_config.yaml" command="load" />
     <rosparam file="$(find blm6191_coverage_planner)/config/coverage_planner_params.yaml" command="load" />
     <rosparam file="$(find blm6191_coverage_planner)/config/pure_pursuit_planner_params.yaml" command="load" />
   </group>
 
-  <!-- Standart TurtleBot3 move_base launch dosyasını dahil et -->
-  <!-- Sadece move_base.launch dosyasının kabul ettiği argümanları geçiriyoruz (örn. model) -->
+
   <include file="$(find turtlebot3_navigation)/launch/move_base.launch">
     <arg name="model" value="$(arg model)" />
-    <!-- move_base.launch dosyası open_rviz argümanını kabul etmez, o yüzden kaldırıldı -->
-    <!-- Parametre dosyaları artık include dışındaki rosparam etiketleriyle yükleniyor -->
+
   </include>
 
-  <!-- RViz'i ayrı bir düğüm olarak başlat, open_rviz argümanına bağlı olarak -->
   <group if="$(arg open_rviz)">
      <node pkg="rviz" type="rviz" name="rviz" args="-d $(find turtlebot3_navigation)/rviz/turtlebot3_navigation.rviz"/>
-     <!-- İsteğe bağlı: Kendi özel RViz konfigürasyon dosyanızı kullanabilirsiniz -->
-     <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find blm6191_coverage_planner)/rviz/my_nav.rviz"/> -->
+
   </group>
 
 </launch>
