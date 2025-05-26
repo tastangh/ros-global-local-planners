@@ -1,0 +1,8 @@
+# Soru 2: PurePursuitPlanner Plugin Parametreleri
+blm6191_pure_pursuit_planner:
+  lookahead_distance: 0.4 # m - Takip edilecek noktanın robotun ilerisindeki mesafesi (Ld)
+  max_linear_velocity: 0.4 # m/s - Robotun ulaşabileceği maksimum ileri hız (genellikle sabit tutulur)
+  max_angular_velocity: 1.5 # rad/s - Robotun ulaşabileceği maksimum açısal hız
+  # wheelbase: 0.26 # Sadece Ackerman drive için gerekebilir, differential drive için eğrilik hesabında kullanılmaz
+  goal_tolerance: 0.1 # m - Robotun global planın son noktasına ne kadar yaklaşınca duracağı
+  transform_tolerance: 0.1 # s - TF dönüşümleri için beklenecek süre
